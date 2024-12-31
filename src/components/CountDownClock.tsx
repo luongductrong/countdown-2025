@@ -25,13 +25,16 @@ export default function CountdownClock({ targetDate }: { targetDate: Date }) {
     };
   }
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+  useEffect(
+    () => {
+      const timer = setInterval(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
 
-    return () => clearInterval(timer);
-  }, []);
+      return () => clearInterval(timer);
+    },
+    [] /* eslint-disable-line react-hooks/exhaustive-deps */,
+  );
 
   const timerComponents = timeLeft
     ? Object.keys(timeLeft).map((interval) => {
