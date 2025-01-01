@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CurrentClock from './components/CurrentClock';
 import CountdownClock from './components/CountDownClock';
+import mewmew from './assets/mewmew.webp';
 
 export default function Page() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -23,20 +24,18 @@ export default function Page() {
 
   return (
     <main
-      className={`min-h-screen ${
-        isLandscape ? 'bg-[url("/anime-sky-landscape.png")]' : 'bg-[url("/anime-sky.jpg")]'
-      } bg-cover bg-center flex flex-col
-    items-center justify-center p-4 text-white font-vt323 max-w-screen max-h-screen`}
+      className={`min-h-screen ${isLandscape ? 'bg-landscape' : 'bg-portrait'}
+      bg-cover bg-center flex flex-col items-center justify-center p-4 text-white font-vt323 max-w-screen max-h-screen`}
     >
       <div className="bg-black bg-opacity-50 min-w-[90%] p-6 rounded-lg shadow-lg">
         <CurrentClock currentTime={currentTime} />
         <CountdownClock targetDate={new Date('2025-01-01T00:00:01')} />
       </div>
       <div className="fixed bottom-4 left-4">
-        <img src="mewmew.webp" alt="Mewwwwww" className="h-28" />
+        <img src={mewmew} alt="Mewwwwww" className="h-28" />
       </div>
       <div className="fixed top-4 right-4">
-        <img src="mewmew.webp" alt="Mewwwwww" className="h-28" />
+        <img src={mewmew} alt="Mewwwwww" className="h-28" />
       </div>
     </main>
   );
